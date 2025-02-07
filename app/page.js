@@ -14,10 +14,26 @@ export default function StonePaperScissors() {
     setCompScore(0);
     setResult("Result");
     setShowMessage(false);
+    playSound("click");
+    vibrate(100);
     setWinner("");
   };
 
+  // Function to play sound
+  const playSound = (sound) => {
+    const audio = new Audio(`/sounds/${sound}.mp3`);
+    audio.play();
+  };
+
+  // Function to trigger vibration (if supported)
+  const vibrate = (pattern) => {
+    if ("vibrate" in navigator) {
+      navigator.vibrate(pattern);
+    }
+  };
   const playGame = (userChoice) => {
+    playSound("click");
+    vibrate(50);
     if (showMessage) return;
     const compChoice = choices[Math.floor(Math.random() * 3)];
 
@@ -37,9 +53,13 @@ export default function StonePaperScissors() {
 
     if (userScore + 1 === 5) {
       setWinner("Congratulations, You won!");
+      playSound("Winner");
+      vibrate(500);
       setShowMessage(true);
     } else if (compScore + 1 === 5) {
       setWinner("Sorry, You lost!");
+      playSound("loser");
+      vibrate(500);
       setShowMessage(true);
     }
   };
