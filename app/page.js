@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-
+import Image from "next/image";
 export default function StonePaperScissors() {
   const choices = ["stone", "paper", "scissors"];
   const [userScore, setUserScore] = useState(0);
@@ -19,7 +20,7 @@ export default function StonePaperScissors() {
   const playGame = (userChoice) => {
     if (showMessage) return;
     const compChoice = choices[Math.floor(Math.random() * 3)];
-    
+
     if (userChoice === compChoice) {
       setResult("It is a Draw");
     } else if (
@@ -35,25 +36,25 @@ export default function StonePaperScissors() {
     }
 
     if (userScore + 1 === 5) {
-      setWinner("You");
+      setWinner("Congratulations, You won!");
       setShowMessage(true);
     } else if (compScore + 1 === 5) {
-      setWinner("Computer");
+      setWinner("Sorry, You lost!");
       setShowMessage(true);
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-pink-300 text-center">
-      <h1 className="text-4xl font-bold">STONE PAPER SCISSORS</h1>
+      <h1 className="text-4xl text-black font-bold">STONE PAPER SCISSORS</h1>
       {showMessage && (
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black bg-opacity-75">
           <div className="text-white text-4xl font-bold mb-4">
-            {winner === "DRAW" ? "It's a draw!" : `Congratulations, ${winner} won!`}
+            {winner === "DRAW" ? "It's a draw!" : `${winner}`}
           </div>
           <button
             onClick={resetGame}
-            className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-300 transition"
+            className="px-6 py-3 bg-white text-black text-xl font-sans font-bold rounded-lg hover:bg-gray-300 transition"
           >
             New Game
           </button>
@@ -66,15 +67,17 @@ export default function StonePaperScissors() {
             className="p-4 bg-gray-200 rounded-full shadow-lg hover:bg-gray-400"
             onClick={() => playGame(choice)}
           >
-            <img
-              src={`./pictures/${choice}.jpg`}
+            <Image
+              src={`/pictures/${choice}.jpg`}
               alt={choice}
-              className="w-20 h-20 rounded-full"
+              width={80}
+              height={80}
+              className="rounded-full"
             />
           </button>
         ))}
       </div>
-      <div className="flex gap-20 mt-10 text-2xl font-semibold">
+      <div className="flex gap-20 mt-10 text-2xl text-black font-semibold">
         <div>
           <p>You</p>
           <p>{userScore}</p>
@@ -84,7 +87,7 @@ export default function StonePaperScissors() {
           <p>{compScore}</p>
         </div>
       </div>
-      <h2 className="mt-10 text-xl italic">{result}</h2>
+      <h2 className="mt-10 text-black font-extrabold text-2xl italic">{result}</h2>
       <button
         className="mt-6 px-6 py-2 bg-black text-white rounded-lg"
         onClick={resetGame}
