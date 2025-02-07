@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stone Paper Scissors Game
 
-## Getting Started
+This is a simple **Stone Paper Scissors** game built using **Next.js (React)** and styled with **Tailwind CSS**. The game allows players to compete against the computer, which makes its choices using `Math.random()`. It also includes sound effects and device vibrations for a more immersive experience.
 
-First, run the development server:
+## Features
+- **User vs. Computer Gameplay**: The computer makes random selections using `Math.random()`.
+- **Score Tracking**: Keeps track of the user's and computer's scores.
+- **Game Result Announcement**: Displays a message when a player reaches 5 points.
+- **New Game & Reset Options**: Allows players to restart the game at any time.
+- **Sound Effects**: Adds sounds for button clicks and game results.
+- **Vibrations**: Uses device vibration for feedback on supported devices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Installation & Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/stone-paper-scissors.git
+   cd stone-paper-scissors
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+4. Open your browser and visit `http://localhost:3000` to play the game.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Play
+1. Click on **Stone**, **Paper**, or **Scissors** to make your choice.
+2. The computer will randomly select a move.
+3. The game will display the result and update the score accordingly.
+4. The first to reach **5 points** wins the game.
+5. Click **New Game** to restart after a win/loss or **Reset Game** to reset scores.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
+- **Next.js** (React Framework)
+- **Tailwind CSS** (Styling)
+- **JavaScript** (Game logic & `Math.random()` for randomness)
+- **HTML5 Audio API** (Sound effects)
+- **Vibration API** (Device vibrations)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Future Improvements
+- Add animations for a smoother UI experience.
+- Enhance AI with a learning algorithm for a more challenging opponent.
+- Implement multiplayer mode for online play.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+_Made with ❤️ by Sabhya_
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
